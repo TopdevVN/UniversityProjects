@@ -3,5 +3,5 @@ Hai bước chính mà mình sẽ đi qua trong project này là: Thiết kế v
 **Dataset:** *Global-Superstore.xlsx*. File dữ liệu về tình hình kinh doanh của 1 superstore trên toàn cầu. <br>
 **FullScript.sql:** File sql tạo lược đồ và thực hiện truy vấn.  <br>
 **BasicSalesAnalyze.docx:** File doc phân tích các bước mình làm. <br>
-Thiết kế lược đồ hình sao: <br>
+_Thiết kế lược đồ hình sao:_ <u> <br>
 <img width="873" alt="StarSchemaPlan" src="https://user-images.githubusercontent.com/86181500/236392154-e0e688ce-f086-4052-8e9e-b60fac426149.png">
