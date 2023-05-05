@@ -1,2 +1,3 @@
 # UniversityMiniProjects
-Tổng hợp một số mini projects đã làm ở đại học của mình.
+Ở Github Repo này mình sẽ tổng hợp một số mini projects đã làm ở đại học.
+Các projects liên quan đến SQL, Python, Tableau, ...
