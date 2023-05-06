@@ -8,12 +8,17 @@
 ___
 Cụ thể: <br>
 Phương pháp trích chọn đặc trưng: Recursive Feature Elimination (RFE). <br>
+Phương pháp xử lý mất cân bằng: 
+- Oversampling: Sythentic Minority Over-sampling Technique (SMOTE). 
+- Undersampling: Tomek Links, Edited Nearest Neighbour.
+- Kết hợp Over và Under-Sampling: SMOTETomek, SMOTEENN.
+
 Các mô hình phân lớp được dùng để đánh giá: <br>
 - 'KNN', 'Logistic Regression', 'Random Forest', 'Naive Bayes', "Neural Network", "Linear Support Vector Machine". <br> 
 Các chỉ số đánh giá: <br>
-- (Accuracy, Precision, Recall, F1-score, AUC, ROC, Running time) <br>
+- (Accuracy, Precision, Recall, F1-score, AUC, ROC, Running time). <br>
 ___ 
-Các File liên quan <br>
+Các File liên quan: <br>
 Dataset: bank-additional-full.csv: Dataset về chiến dịch tiếp thị của một ngân hàng Bồ Đào Nha. <br>
 ModelsEvaluation.ipynb: File ipynb đánh giá mô hình trên dataset mất cân bằng. <br>
 ChooseImbalanceMethod.ipynb: File ipynb đánh giá mô hình với dữ liệu được áp dụng nhiều phương pháp xử lý mất cân bằng. <br>
