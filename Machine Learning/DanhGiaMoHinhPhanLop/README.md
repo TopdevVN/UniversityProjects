@@ -7,13 +7,13 @@
 <br>
 ___
 Cụ thể: <br>
-*Các mô hình phân lớp được dùng để đánh giá:* <br>
-'KNN', 'Logistic Regression', 'Random Forest', 'Naive Bayes', "Neural Network", "Linear Support Vector Machine". <br> 
-*Các chỉ số đánh giá:* <br>
-(Accuracy, Precision, Recall, F1-score, AUC, ROC, Running time) <br>
+Các mô hình phân lớp được dùng để đánh giá: <br>
+- 'KNN', 'Logistic Regression', 'Random Forest', 'Naive Bayes', "Neural Network", "Linear Support Vector Machine". <br> 
+Các chỉ số đánh giá: <br>
+- (Accuracy, Precision, Recall, F1-score, AUC, ROC, Running time) <br>
 ___ 
-Các File liên quan
-**Dataset: ** *bank-additional-full.csv*: Dataset về chiến dịch tiếp thị của một ngân hàng Bồ Đào Nha. <br>
-*ModelsEvaluation.ipynb*: File ipynb đánh giá mô hình trên dataset mất cân bằng. <br>
-*ChooseImbalanceMethod.ipynb*: File ipynb đánh giá mô hình trên dataset được áp dụng nhiều phương pháp xử lý mất cân bằng. <br>
-*DanhGiaMoHinh.pdf*: File pdf diễn giải kết quả.
+Các File liên quan <br>
+Dataset: bank-additional-full.csv: Dataset về chiến dịch tiếp thị của một ngân hàng Bồ Đào Nha. <br>
+ModelsEvaluation.ipynb: File ipynb đánh giá mô hình trên dataset mất cân bằng. <br>
+ChooseImbalanceMethod.ipynb: File ipynb đánh giá mô hình với dữ liệu được áp dụng nhiều phương pháp xử lý mất cân bằng. <br>
+DanhGiaMoHinh.pdf: File pdf diễn giải kết quả.
