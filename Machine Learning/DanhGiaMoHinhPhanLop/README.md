@@ -7,6 +7,7 @@
 <br>
 ___
 Cụ thể: <br>
+Phương pháp trích chọn đặc trưng: Recursive Feature Elimination (RFE). <br>
 Các mô hình phân lớp được dùng để đánh giá: <br>
 - 'KNN', 'Logistic Regression', 'Random Forest', 'Naive Bayes', "Neural Network", "Linear Support Vector Machine". <br> 
 Các chỉ số đánh giá: <br>
