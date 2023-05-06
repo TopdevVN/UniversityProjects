@@ -8,10 +8,10 @@
 ___
 Cụ thể: <br>
 Phương pháp trích chọn đặc trưng: Recursive Feature Elimination (RFE). <br>
-Phương pháp xử lý mất cân bằng: 
-- Oversampling: Sythentic Minority Over-sampling Technique (SMOTE). 
-- Undersampling: Tomek Links, Edited Nearest Neighbour.
-- Kết hợp Over và Under-Sampling: SMOTETomek, SMOTEENN.
+Phương pháp xử lý mất cân bằng: <br>
+- Oversampling: Sythentic Minority Over-sampling Technique (SMOTE). <br>
+- Undersampling: Tomek Links, Edited Nearest Neighbour. <br>
+- Kết hợp Over và Under-Sampling: SMOTETomek, SMOTEENN. <br>
 
 Các mô hình phân lớp được dùng để đánh giá: <br>
 - 'KNN', 'Logistic Regression', 'Random Forest', 'Naive Bayes', "Neural Network", "Linear Support Vector Machine". <br> 
