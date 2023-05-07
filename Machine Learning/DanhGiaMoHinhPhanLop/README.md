@@ -18,7 +18,7 @@ Các mô hình phân lớp được dùng để đánh giá: <br>
 Các chỉ số đánh giá: <br>
 - (Accuracy, Precision, Recall, F1-score, AUC, ROC, Running time). <br>
 ___ 
-Các File liên quan: <br>
+**Các File liên quan**: <br>
 Dataset: bank-additional-full.csv: Dataset về chiến dịch tiếp thị của một ngân hàng Bồ Đào Nha. <br>
 ModelsEvaluation.ipynb: File ipynb đánh giá mô hình trên dataset mất cân bằng. <br>
 ChooseImbalanceMethod.ipynb: File ipynb đánh giá mô hình với dữ liệu được áp dụng nhiều phương pháp xử lý mất cân bằng. <br>
