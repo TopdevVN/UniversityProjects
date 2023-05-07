@@ -5,21 +5,26 @@
 * Sử dụng nhiều phương pháp cân bằng dữ liệu của Python và đánh giá mô hình trên mỗi phương pháp cân bằng dữ liệu. <br>
 * Đưa ra các mô hình tốt nhất theo từng tiêu chí đánh giá. <br>
 <br>
-___
-Cụ thể: <br>
-Phương pháp trích chọn đặc trưng: Recursive Feature Elimination (RFE). <br>
-Phương pháp xử lý mất cân bằng: <br>
-- Oversampling: Sythentic Minority Over-sampling Technique (SMOTE). <br>
-- Undersampling: Tomek Links, Edited Nearest Neighbour. <br>
-- Kết hợp Over và Under-Sampling: SMOTETomek, SMOTEENN. <br>
 
-Các mô hình phân lớp được dùng để đánh giá: <br>
-- 'KNN', 'Logistic Regression', 'Random Forest', 'Naive Bayes', "Neural Network", "Linear Support Vector Machine". <br> 
-Các chỉ số đánh giá: <br>
-- (Accuracy, Precision, Recall, F1-score, AUC, ROC, Running time). <br>
+***
+
+**Cụ thể:** <br>
+**Phương pháp trích chọn đặc trưng**: Recursive Feature Elimination (RFE). <br>
+**Phương pháp xử lý mất cân bằng**: <br>
+* Oversampling: Sythentic Minority Over-sampling Technique (SMOTE). <br>
+* Undersampling: Tomek Links, Edited Nearest Neighbour. <br>
+* Kết hợp Over và Under-Sampling: SMOTETomek, SMOTEENN. <br>
+
+**Các mô hình phân lớp được dùng để đánh giá**: <br>
+* 'KNN', 'Logistic Regression', 'Random Forest', 
+* 'Naive Bayes', "Neural Network", "Linear Support Vector Machine".
+
+**Các chỉ số đánh giá**: <br>
+* Accuracy, Precision, Recall, 
+* F1-score, AUC, ROC, Running time. 
 ___ 
 **Các File liên quan**: <br>
-Dataset: bank-additional-full.csv: Dataset về chiến dịch tiếp thị của một ngân hàng Bồ Đào Nha. <br>
-ModelsEvaluation.ipynb: File ipynb đánh giá mô hình trên dataset mất cân bằng. <br>
-ChooseImbalanceMethod.ipynb: File ipynb đánh giá mô hình với dữ liệu được áp dụng nhiều phương pháp xử lý mất cân bằng. <br>
-DanhGiaMoHinh.pdf: File pdf diễn giải kết quả.
+*Dataset: bank-additional-full.csv*:... Dataset về chiến dịch tiếp thị của một ngân hàng Bồ Đào Nha. <br>
+*ModelsEvaluation.ipynb*:......................File ipynb đánh giá mô hình trên dataset mất cân bằng. <br>
+*ChooseImbalanceMethod.ipynb*:.......File ipynb đánh giá mô hình với dữ liệu được áp dụng nhiều phương pháp xử lý mất cân bằng. <br>
+*DanhGiaMoHinh.pdf*:........................... File pdf diễn giải kết quả.
