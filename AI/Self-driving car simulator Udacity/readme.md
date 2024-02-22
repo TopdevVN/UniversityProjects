@@ -1,3 +1,5 @@
+<img width="582" alt="Map2" src="https://github.com/TopdevVN/UniversityMiniProjects/assets/86181500/ccb621c3-463a-4af1-86f0-4834820ec12c">
+
 In this project, I will use knowledge about convolutional neural networks to train a self-driving car model using Keras. <br>
 The model will output a steering angle to an autonomous vehicle in each frame. <br>
 Udacity provided a simulator where I could steer a car around a track for data collection. <br>
