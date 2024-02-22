@@ -5,3 +5,4 @@ I'll use those images data and steering angles to train a neural network, and th
 Here are the video results:
 [Track 1:] (https://www.youtube.com/watch?v=ZitdKgohpvA)
 [Track 2:] (https://www.youtube.com/watch?v=XyE1oQYIB0o)
+[**Link to Dashboard**](https://public.tableau.com/app/profile/phan.cong.hieu/viz/BicycleSalesDashboard_16688177659690/Overview)
