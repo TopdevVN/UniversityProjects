@@ -1,1 +1,2 @@
-
+FinalCode.ipynb: Script to train and save the best model to self-drive the simulator car.
+best.h5: Best self-driving model created from FinalCode.ipynb
