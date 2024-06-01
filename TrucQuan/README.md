@@ -3,7 +3,7 @@
 Công ty này chủ yếu kinh doanh tại 3 bang phía Đông của Úc là: Queensland, New South Wales và Victoria.
 <img width="957" alt="3States" src="https://user-images.githubusercontent.com/86181500/236387812-65fd4e92-24bb-4746-b942-44f9a3aae84e.png">
 **PreprocesingAll.ipynb:** File tiền xử lý dữ liệu với python.<br>
-**TrucQuanInsights.docx:** File doc về phân tích về những gì mình đã làm.
+**TrucQuanInsights.docx:** File doc phân tích về những gì mình đã làm.
 
 ---
 ---
