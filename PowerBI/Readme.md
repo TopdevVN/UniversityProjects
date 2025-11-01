@@ -7,7 +7,7 @@ _Customer.csv_;
 _Product_Categories.csv_;
 _Returns.csv_;
 _Subcategories.csv_;
-_Sales.csv_;
+_Sales.csv (merge from 2015-2017)_;
 _Territories.csv_ <br>
 <br>
 **The process:** <br>
