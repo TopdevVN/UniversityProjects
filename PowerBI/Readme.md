@@ -11,9 +11,9 @@ _Sales.csv (merge from 2015-2017)_;
 _Territories.csv_ <br>
 <br>
 **The process:** <br>
-Clean dataset using Python. <br>
+Clean dataset using Python: DataPreprocessing.ipynb <br>
 Data modelling in Power BI <br>
-Create calculated columns. <br>
+Create calculated columns: CalculatedColumnUsed.docx <br>
 Use DAX. <br>
 Create multiple dashboards to view the sale performance of the company. <br>
 
