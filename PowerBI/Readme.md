@@ -1,5 +1,16 @@
 My project to work with a small sample dataset of Microsoft (AdventureWorks dataset: a dataset about a global manufacturer of bicycles and cycling equipment). <br>
-The process:
+<br>
+**All Datasets:**
+<br>
+_Calendar.csv_;
+_Customer.csv_;
+_Product_Categories.csv_;
+_Returns.csv_;
+_Subcategories.csv_;
+_Sales.csv_;
+_Territories.csv_ <br>
+<br>
+**The process:** <br>
 Clean dataset using Python. <br>
 Data modelling in Power BI <br>
 Create calculated columns. <br>
