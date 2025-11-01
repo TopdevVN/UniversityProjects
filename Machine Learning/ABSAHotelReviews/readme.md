@@ -1,5 +1,5 @@
-# Aspect-based sentiment analysis (Danang hotel reviews)
-In this project, I build multiple aspect-based sentiment analysis machine learning models (SVM). First, I scraped data about hotel reviews in Da Nang via Booking.com, then did some preprocessing steps and built a model pipeline. <br>
+# Aspect-based sentiment analysis (Danang hotel reviews) 
+In my graduation thesis, I self-research to build multiple aspect-based sentiment analysis machine learning models (SVM). First, I scraped data about hotel reviews in Da Nang via Booking.com, then did some preprocessing steps and built a machine learning model pipeline. <br>
 
 **How do I train my models?** <br>
 <img width="648" alt="image" src="https://github.com/TopdevVN/UniversityProjects/assets/86181500/aac2cdfc-f92a-4c68-b711-ccd81476cec1"> <br>
