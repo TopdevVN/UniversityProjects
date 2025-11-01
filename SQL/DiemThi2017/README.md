@@ -1,4 +1,7 @@
-Project này tập trung vào tiền xử lý văn bản với ngôn ngữ SQL thông qua một số hàm xử lý văn bản thông dụng, và thực hiện truy vấn cơ bản về tình hình điểm thi THPT quốc gia 2017 của 2 khối A và A1 tại Hà Nội. <br>
-**Dataset:** *DiemThiHN2017.xlsx*. Điểm thi của các thí sinh tham gia kỳ thi THPT quốc gia 2017 tại Hà Nội. <br>
-**PhanTichDiemThi2017.sql:** File sql thực hiền tiền xử lý và phân tích. <br>
-**PhanTichDiemThi.docx:** File phân tích và giải thích các bước làm.
+This project focuses on preprocessing text with SQL language through some common text processing functions and performing query statements on the 2017 national high school exam scores of the two exam blocks, A and A1, in Hanoi. <br>
+
+**Dataset DiemThiHN2017.xlsx:** Exam scores of candidates participating in the 2017 national high school exam in Hanoi. <br>
+
+**PhanTichDiemThi2017.sql:** SQL file to perform preprocessing and analysis. <br>
+
+**PhanTichDiemThi.docx:** Docs file to analyze and explain the steps.
