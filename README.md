@@ -1,3 +1,2 @@
 # University Projects
-Ở Github Repo này mình sẽ tổng hợp các projects đã làm ở đại học.
-Các projects liên quan đến SQL, Python, Tableau, ...
+Projects at University and Personal Projects
