@@ -15,6 +15,8 @@ Clean dataset using Python: DataPreprocessing.ipynb <br>
 Data modelling in Power BI <br>
 Create calculated columns: CalculatedColumnUsed.docx <br>
 Use DAX. <br>
+
+**Visualize file:** _AdventureSalesAnalyze.pbix_ <br>
 Create multiple dashboards to view the sale performance of the company. <br>
 
 <p align="center">
