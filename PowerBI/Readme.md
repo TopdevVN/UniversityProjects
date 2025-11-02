@@ -1,4 +1,4 @@
-My project to work with a small sample dataset of Microsoft (AdventureWorks dataset: a dataset about a global manufacturer of bicycles and cycling equipment). <br>
+My project to work with a sample dataset of Microsoft (AdventureWorks dataset: a dataset about a global manufacturer of bicycles and cycling equipment). <br>
 <br>
 **All Datasets:**
 <br>
