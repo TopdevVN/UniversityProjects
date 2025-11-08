@@ -1,104 +1,105 @@
-create database GlobalShop
-use GlobalShop
+CREATE DATABASE GlobalShop
+USE GlobalShop
 
-select top 50 * from Orders
+--Import Dataset from excel file using Import & Export Wizard
+SELECT TOP 50 * FROM Orders
 
 --Fix Postal Code
-	update Orders
-	set [Postal Code] = iif([Postal Code] is null, ' ', [Postal Code])
+	UPDATE Orders
+	SET [Postal Code] = IIF([Postal Code] IS NULL, ' ', [Postal Code])
 	
-	select top 50 [Postal Code] from Orders
+	SELECT top 50 [Postal Code] FROM Orders
 
-	alter Table Orders
-	alter column [Postal Code] nvarchar(255)
+	ALTER TABLE Orders
+	ALTER COLUMN [Postal Code] NVARCHAR(255)
 
---Add LocationID and Set LocationID's values
-	alter table Orders
-	add LocationID nvarchar(255) 
+--ADD LocationID and SET LocationID's values
+	ALTER TABLE Orders
+	ADD LocationID NVARCHAR(255) 
 
 	update Orders
-	set LocationID = Country + [Postal Code] + City + State
+	SET LocationID = Country + [Postal Code] + City + State
 
-	alter table Orders
-	alter column LocationID nvarchar(255) not null
+	ALTER TABLE Orders
+	ALTER COLUMN LocationID NVARCHAR(255) not null
 
 --##create table Location
-	select distinct LocationID, Country, State, City, Region,[Postal Code], Market
-	into Location
-	from Orders
-		--##add primary key
-		alter table Location
-		add primary key (LocationID)
+	SELECT DISTINCT LocationID, Country, State, City, Region,[Postal Code], Market
+	INTO Location
+	FROM Orders
+		--##ADD PRIMARY KEY
+		ALTER TABLE Location
+		ADD PRIMARY KEY (LocationID)
 
 --create table Customers
-	select distinct [Customer ID], [Customer Name], Segment 
-	into Customers 
-	from Orders
+	SELECT DISTINCT [Customer ID], [Customer Name], Segment 
+	INTO Customers 
+	FROM Orders
 	--change data type
-	alter table Customers
-	alter column [Customer ID] nvarchar(255) not null
-	--add primary key
-	alter table Customers
-	add primary key ([Customer ID])
+	ALTER TABLE Customers
+	ALTER COLUMN [Customer ID] NVARCHAR(255) not null
+	--ADD PRIMARY KEY
+	ALTER TABLE Customers
+	ADD PRIMARY KEY ([Customer ID])
 
 --create table Products
-	select distinct [Product ID], [Product Name], [Sub-Category], Category
-	into Products
-	from Orders
+	SELECT DISTINCT [Product ID], [Product Name], [Sub-Category], Category
+	INTO Products
+	FROM Orders
 	--change data type
-	alter table Products
-	alter column [Product ID] nvarchar(255) not null
-	--add primary key
-	alter table Products
-	add primary key ([Product ID])
+	ALTER TABLE Products
+	ALTER COLUMN [Product ID] NVARCHAR(255) not null
+	--ADD PRIMARY KEY
+	ALTER TABLE Products
+	ADD PRIMARY KEY ([Product ID])
 
 --create table Bills
-	select [Row ID], [Order ID], [Order Date], [Ship Date], [Ship Mode],
+	SELECT [Row ID], [Order ID], [Order Date], [Ship Date], [Ship Mode],
 	[Customer ID], [Product ID], Sales, Quantity, Discount, Profit,
 	[Shipping Cost],[Order Priority], LocationID
-	into Bills from Orders
+	INTO Bills FROM Orders
 
 	--change data type of main column
-	alter table Bills
-	alter column [Row ID] int not null
-	--add primary key
-	alter table Bills
-	add primary key ([Row ID])
+	ALTER TABLE Bills
+	ALTER COLUMN [Row ID] int not null
+	--ADD PRIMARY KEY
+	ALTER TABLE Bills
+	ADD PRIMARY KEY ([Row ID])
 
 
---add foreign key
-	alter table Bills
-	add constraint FK_Customers foreign key ([Customer ID]) references Customers ([Customer ID]),
-	constraint FK_Products foreign key ([Product ID]) references Products ([Product ID]),
-	constraint FK_Location foreign key (LocationID) references Location (LocationID)
+--ADD FOREIGN KEY
+	ALTER TABLE Bills
+	ADD CONSTRAINT FK_Customers FOREIGN KEY ([Customer ID]) REFERENCES Customers ([Customer ID]),
+	CONSTRAINT FK_Products FOREIGN KEY ([Product ID]) REFERENCES Products ([Product ID]),
+	CONSTRAINT FK_Location FOREIGN KEY (LocationID) REFERENCES Location (LocationID)
 
 
 --TRUY VẤN DỮ LIỆU--
 
 --Q1: Tính doanh thu hàng tháng qua từng năm
---select value
-	select month([Ship Date]) as Months,
-	       year([Ship Date]) as Years,
+--SELECT value
+	SELECT month([Ship Date]) AS Months,
+	       year([Ship Date]) AS Years,
 		   Sales, Profit 
-	into Revenue from Bills
-	select * from Revenue
-	order by Years, Months
+	INTO Revenue FROM Bills
+	SELECT * FROM Revenue
+	ORDER BY Years, Months
 --Tính doanh thu từng tháng qua các năm
 	SELECT Months , 
-	round(SUM(CASE WHEN Years = 2014 THEN Sales END),2) as [Sum_sale 2014],
-	round(SUM(CASE WHEN Years = 2015 THEN Sales END),2) as [Sum_sale 2015],
-	round(SUM(CASE WHEN Years = 2016 THEN Sales END),2) as [Sum_sale 2016],
-	round(SUM(CASE WHEN Years = 2017 THEN Sales END),2) as [Sum_sale 2017]
-	into Sum_sales_by_months_in_4_years
-	from Revenue
-	group by Months
-	order by Months 
+	ROUND(SUM(CASE WHEN Years = 2014 THEN Sales END),2) AS [SUM_sale 2014],
+	ROUND(SUM(CASE WHEN Years = 2015 THEN Sales END),2) AS [SUM_sale 2015],
+	ROUND(SUM(CASE WHEN Years = 2016 THEN Sales END),2) AS [SUM_sale 2016],
+	ROUND(SUM(CASE WHEN Years = 2017 THEN Sales END),2) AS [SUM_sale 2017]
+	INTO SUM_sales_by_months_in_4_years
+	FROM Revenue
+	GROUP BY Months
+	ORDER BY Months 
 
-select * from Sum_sales_by_months_in_4_years order by Months
+SELECT * FROM SUM_sales_by_months_in_4_years ORDER BY Months
 
 --Q2: Lợi nhuận trung bình trên một đơn hàng theo từng tháng mỗi năm
 
-/* Short & easy version
+/* Short & eASy version
 	SELECT Months, 
 			ROUND(AVG(CASE WHEN Years = 2014 THEN Profit END), 0) AS Profit_each_bill_2014, 
 			ROUND(AVG(CASE WHEN Years = 2015 THEN Profit END), 0) AS Profit_each_bill_2015, 
@@ -109,130 +110,131 @@ select * from Sum_sales_by_months_in_4_years order by Months
 		GROUP BY Months 
 		ORDER BY Months;
 */
-SELECT * FROM AVG_PROFIT_PERORDER_OV4YEARS
-ORDER BY Months
+
+--SELECT * FROM AVG_PROFIT_PERORDER_OV4YEARS
+--ORDER BY Months
 
 /*SELECT COLUMN_NAME, DATA_TYPE 
 FROM INFORMATION_SCHEMA.COLUMNS 
 WHERE TABLE_NAME = 'Profit_by_months_of_4_years'*/
 
 SELECT Months , 
-		round(SUM(CASE WHEN Years = 2014 THEN Profit END)/count(CASE WHEN Years = 2014 THEN 1 END),0) 
-		as [Profit_each_bill_2014],
-		round(SUM(CASE WHEN Years = 2015 THEN Profit END)/count(CASE WHEN Years = 2015 THEN 1 END),0) 
-		as [Profit_each_bill_2015],
-		round(SUM(CASE WHEN Years = 2016 THEN Profit END)/count(CASE WHEN Years = 2016 THEN 1 END),0) 
-		as [Profit_each_bill_2016],
-		round(SUM(CASE WHEN Years = 2017 THEN Profit END)/count(CASE WHEN Years = 2017 THEN 1 END),0) 
-		as [Profit_each_bill_2017]
-	into Profit_by_months_of_4_years
-	from Revenue
-	group by Months
-	order by Months 
+		ROUND(SUM(CASE WHEN Years = 2014 THEN Profit END)/count(CASE WHEN Years = 2014 THEN 1 END),0) 
+		AS [Profit_each_bill_2014],
+		ROUND(SUM(CASE WHEN Years = 2015 THEN Profit END)/count(CASE WHEN Years = 2015 THEN 1 END),0) 
+		AS [Profit_each_bill_2015],
+		ROUND(SUM(CASE WHEN Years = 2016 THEN Profit END)/count(CASE WHEN Years = 2016 THEN 1 END),0) 
+		AS [Profit_each_bill_2016],
+		ROUND(SUM(CASE WHEN Years = 2017 THEN Profit END)/count(CASE WHEN Years = 2017 THEN 1 END),0) 
+		AS [Profit_each_bill_2017]
+	INTO Profit_by_months_of_4_years
+	FROM Revenue
+	GROUP BY Months
+	ORDER BY Months 
 
-alter table Profit_by_months_of_4_years
-alter column Months char(2)
+ALTER TABLE Profit_by_months_of_4_years
+ALTER COLUMN Months char(2)
 
-select * from Profit_by_months_of_4_years
-order by Months 
+SELECT * FROM Profit_by_months_of_4_years
+ORDER BY Months 
 
-select * into Average_profit_by_years
-from Profit_by_months_of_4_years
+SELECT * INTO Average_profit_by_years
+FROM Profit_by_months_of_4_years
 union
-select 'Average',
-		round(AVG(Profit_each_bill_2014),0),
-		round(AVG(Profit_each_bill_2015),0),
-		round(AVG(Profit_each_bill_2016),0),
-		round(AVG(Profit_each_bill_2017),0)
-from Profit_by_months_of_4_years
-order by Months
+SELECT 'Average',
+		ROUND(AVG(Profit_each_bill_2014),0),
+		ROUND(AVG(Profit_each_bill_2015),0),
+		ROUND(AVG(Profit_each_bill_2016),0),
+		ROUND(AVG(Profit_each_bill_2017),0)
+FROM Profit_by_months_of_4_years
+ORDER BY Months
 
-select * from Average_profit_by_years 
+SELECT * FROM Average_profit_by_years 
 
 
 ----Q3.Sản phẩm có lợi nhuận âm năm 2016
-Select distinct [Product Name], sum(profit) as Profit_sum 
-into [Product negative profit 1000]
-from Bills inner join Products on Bills.[Product ID] = Products.[Product ID]
-	where Year([Order Date]) = 2016
-	group by [Product Name]
-	having sum(Profit) < -1000
-	Order by Sum(profit)
+SELECT DISTINCT [Product Name], SUM(profit) AS Profit_SUM 
+INTO [Product negative profit 1000]
+FROM Bills inner join Products on Bills.[Product ID] = Products.[Product ID]
+	where YEAR([Order Date]) = 2016
+	GROUP BY [Product Name]
+	having SUM(Profit) < -1000
+	ORDER BY SUM(profit)
 
-select * from [Product negative profit 1000] order by Profit_sum DESC
+SELECT * FROM [Product negative profit 1000] ORDER BY Profit_SUM DESC
 
 --Q4.Top 5 quốc gia có lợi nhuận từ điện thoại cao nhất Đông Nam Á năm 2017
-Select distinct Country, Sum(Profit) as Sum_Profit 
-into Top_5_nations_highest_profit_of_Phones
-from Bills
+SELECT DISTINCT Country, SUM(Profit) AS SUM_Profit 
+INTO Top_5_nations_highest_profit_of_Phones
+FROM Bills
 	 INNER JOIN Products ON Bills.[Product ID] = Products.[Product ID]
 	 INNER JOIN Location ON Bills.LocationID = Location.LocationID
-		where Region = 'Southeastern Asia' and [Sub-Category] = 'Phones' and Year([Order Date]) = 2017
-		group by Country
-		having Sum(Profit) > 0
-		order by Sum(Profit) DESC
+		where Region = 'SoutheAStern ASia' and [Sub-Category] = 'Phones' and YEAR([Order Date]) = 2017
+		GROUP BY Country
+		having SUM(Profit) > 0
+		ORDER BY SUM(Profit) DESC
 -- Thuc te chi co 7 quoc gia
-select top 5.* from Top_5_nations_highest_profit_of_Phones order by Sum_Profit DESC
+SELECT TOP 5.* FROM Top_5_nations_highest_profit_of_Phones ORDER BY SUM_Profit DESC
 
 
 --Q5.Số lượng đơn đặt hàng, tổng số lượng, lợi nhuận, doanh số bán hàng, doanh thu trung bình theo nhóm hàng trong Quý 4 năm 2017 tại Việt Nam
-	Select [Sub-Category],  Count(*) as Number_of_Order,
-		Sum(Quantity) as Sum_Quantity, 
-		Sum(Profit) as Sum_Profit,
-		Sum(Sales) as Sum_Sales, 
-		AVG(Sales) as AVG_Sales
-	from Bills
+	SELECT [Sub-Category],  Count(*) AS Number_of_Order,
+		SUM(Quantity) AS SUM_Quantity, 
+		SUM(Profit) AS SUM_Profit,
+		SUM(Sales) AS SUM_Sales, 
+		AVG(Sales) AS AVG_Sales
+	FROM Bills
 		INNER JOIN Products ON Bills.[Product ID] = Products.[Product ID]
 		INNER JOIN Location ON Bills.LocationID = Location.LocationID
 		where Country = 'Vietnam' 
 			and month([Order Date]) between 10 and 12
 			and  Year([Order Date]) = 2017
-	group by [Sub-Category]
+	GROUP BY [Sub-Category]
 
 --Q6.Sản phẩm có lợi nhuận > 1000 vào năm 2014 tại thị trường Châu Á Thái Bình Dương
-	Select [Product Name], Sum(Profit) as Sum_Profit into Products_over_1000_profit_in_Asia_Pacific
-	from ((Bills
+	SELECT [Product Name], SUM(Profit) AS SUM_Profit INTO Products_over_1000_profit_in_ASia_Pacific
+	FROM ((Bills
 		INNER JOIN Products ON Bills.[Product ID] = Products.[Product ID])
 		INNER JOIN Location ON Bills.LocationID = Location.LocationID) 
-	where Market = 'Asia Pacific' and Year([Order Date]) = 2014 
-	Group by [Product Name]
-	Having Sum(Profit) > 1000
+	where Market = 'ASia Pacific' and Year([Order Date]) = 2014 
+	GROUP BY [Product Name]
+	Having SUM(Profit) > 1000
 
-	select * from Products_over_1000_profit_in_Asia_Pacific order by Sum_Profit DESC
+	SELECT * FROM Products_over_1000_profit_in_ASia_Pacific ORDER BY SUM_Profit DESC
 
 --Q7.Số lượng đơn hàng theo từng chế độ ship hàng
-	select Category, [Ship Mode], count(*) as Amount into [Amount bills by ship mode]
-	from Bills full outer join Products
-	on Bills.[Product ID] = Products.[Product ID]
-		Group by Category, [Ship Mode]
-		order by Category 
-	select * from [Amount bills by ship mode]
+	SELECT Category, [Ship Mode], count(*) AS Amount INTO [Amount bills by ship mode]
+	FROM Bills full outer join Products
+	ON Bills.[Product ID] = Products.[Product ID]
+		GROUP BY Category, [Ship Mode]
+		ORDER BY Category 
+	SELECT * FROM [Amount bills by ship mode]
 
 --Q8: Top 10 nước có số đơn hàng nhiều nhất
-	select top 10 Country, count(*) as Amount
-	from (Bills INNER JOIN Location ON Bills.LocationID = Location.LocationID)
-	group by Country
-	order by count(*) DESC
+	SELECT top 10 Country, count(*) AS Amount
+	FROM (Bills INNER JOIN Location ON Bills.LocationID = Location.LocationID)
+	GROUP BY Country
+	ORDER BY COUNT(*) DESC
 
 --Q9.Số lượng sản phẩm từng loại mặt hàng dựa trên phân khúc khách hàng
-	select Segment,Category,sum(Quantity) as Amount 
-	from Bills
+	SELECT Segment,Category,SUM(Quantity) AS Amount 
+	FROM Bills
 		INNER JOIN Products ON Bills.[Product ID] = Products.[Product ID]
 		INNER JOIN Customers ON Bills.[Customer ID] = Customers.[Customer ID]
-		group by Segment,Category
-		order by Segment
+		GROUP BY Segment,Category
+		ORDER BY Segment
 
 --Q10.Số lượng đơn bán ra mỗi năm theo phân khúc khách hàng.
 	DROP TABLE IF EXISTS Amount_bills_by_segment;
-	select Segment,
-		COUNT(CASE WHEN year([Ship Date])= 2014 THEN 1 END) as Amount_2014,
-		COUNT(CASE WHEN year([Ship Date])= 2015 THEN 1 END) as Amount_2015,
-		COUNT(CASE WHEN year([Ship Date])= 2016 THEN 1 END) as Amount_2016,
-		COUNT(CASE WHEN year([Ship Date])= 2017 THEN 1 END) as Amount_2017
-		into Amount_bills_by_segment
-		from (Bills INNER JOIN Customers ON Bills.[Customer ID] = Customers.[Customer ID])
-		group by Segment
-		order by Segment
-	select * from Amount_bills_by_segment
+	SELECT Segment,
+		COUNT(CASE WHEN YEAR([Ship Date])= 2014 THEN 1 END) AS Amount_2014,
+		COUNT(CASE WHEN YEAR([Ship Date])= 2015 THEN 1 END) AS Amount_2015,
+		COUNT(CASE WHEN YEAR([Ship Date])= 2016 THEN 1 END) AS Amount_2016,
+		COUNT(CASE WHEN YEAR([Ship Date])= 2017 THEN 1 END) AS Amount_2017
+		INTO Amount_bills_by_segment
+		FROM (Bills INNER JOIN Customers ON Bills.[Customer ID] = Customers.[Customer ID])
+		GROUP BY Segment
+		ORDER BY Segment
+	SELECT * FROM Amount_bills_by_segment
 
 	
